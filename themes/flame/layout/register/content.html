@@ -1,0 +1,113 @@
+<div class="login-con">
+	<div class="login-form">
+		<form method="post" id="create-account-form">
+			<fieldset>
+				<h4>{{LANG register}}</h4>
+				<!-- Username input-->
+				<div class="errors hidden"></div>
+				<div class="success hidden"></div>
+				<div class="flame_input">
+					<input type="text" name="username" id="username" placeholder="{{LANG username}}" required="" autofocus="">
+					<label for="username">{{LANG username}}</label>
+				</div>
+				<div class="flame_input">
+					<input type="email" name="email" id="email" placeholder="{{LANG email}}" required="">
+					<label for="email">{{LANG email}}</label>
+				</div>
+				<div class="flame_input">
+					<input type="password" name="password" id="password" placeholder="{{LANG password}}" required="">
+					<label for="password">{{LANG password}}</label>
+				</div>
+				<div class="flame_input">
+					<input type="password" name="c_password" id="c_password" placeholder="{{LANG c_password}}" required="">
+					<label for="c_password">{{LANG c_password}}</label>
+				</div>
+
+				<?php if (is_array($fl['profile_fields']) && count($fl['profile_fields']) > 0): ?>
+					<div class="form-group">
+						<?php foreach ($fl['profile_fields'] as $key => $fl['field']): ?>
+							<?php echo FL_LoadPage('register/fields'); ?>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+				<?php 
+				if ($fl['config']['reCaptcha'] == 1) {
+				?>
+				<div class="form-group">
+					<div class="g-recaptcha" data-sitekey="{{LANG reCaptcha_key}}"></div>
+				</div>
+				<?php } ?>
+				
+				<div class="terms">
+					<input type="checkbox" name="accept_terms" id="accept_terms" onchange="activateButton(this)">
+					<label for="accept_terms"> 
+						{{LANG terms_agreement}} <a href="{{LINK terms/terms}}">{{LANG terms_of_use}}</a> & <a href="{{LINK terms/privacy-policy}}">{{LANG privacy_policy}}</a>
+					</label>
+					<div class="clear"></div>
+				</div>
+				
+				<input type="hidden" name="hash_id" value="{{CREATE_SESSION}}">
+				
+				<div class="login_signup_combo">
+					<div class="login__">
+						<button type="submit" class="btn btn-main" id="sign_submit" disabled>{{LANG sign_up}}</button>
+					</div>
+					<div class="signup__">
+						Already have an account? <a class="dec" href="{{LINK login}}">{{LANG login}}</a>
+					</div>
+				</div>
+			</fieldset>
+			
+			<div class="fl_loading_bar">
+				<svg width="120px" height="120px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#f05125" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#928efb" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#7fbb42" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#32a0da" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg>
+			</div>
+			<?php if (!empty($_GET['invite']) && IsAdminInvitationExists($_GET['invite'])) { ?>
+				<input type="hidden" name="invite" value="<?php echo($_GET['invite']) ?>">
+			<?php } ?>
+		</form>
+	</div>
+</div>
+
+<style>
+.login-form .login_head_svg {background-color: rgba(76, 175, 80, 0.25);color: #4caf50;}.fl_cus_input label {padding: 10px 9px;min-width: 135px;}
+</style>
+
+<script type="text/javascript">
+$(function() {
+  var create_account_form = $("form#create-account-form");
+  var create_account_button = create_account_form.find("button");
+    create_account_form.ajaxForm({
+    url: FL_Ajax_Requests_File() + '?f=create_account',
+    beforeSend: function() {
+      create_account_button.attr("disabled", true);
+      $('.fl_loading_bar').addClass('show');
+    },
+    success: function(data) {
+      if (data.status == 200) {
+        $(".errors").addClass('hidden');
+        $(".success").removeClass('hidden');
+        $(".success").html(data.message);
+        setTimeout(function () {
+          window.location.href = data.location;
+        }, 2000);
+      } else {
+        var errors = data.errors.join("<br>");
+        $(".success").addClass('hidden');
+        $(".errors").removeClass('hidden');
+        $(".errors").html(errors);
+        create_account_button.attr("disabled", false);
+      }
+      $('.fl_loading_bar').removeClass('show');
+    }
+  });
+});
+
+function activateButton(element) {
+	if(element.checked) {
+		document.getElementById("sign_submit").disabled = false;
+	}
+	else  {
+		document.getElementById("sign_submit").disabled = true;
+	}
+};
+</script>

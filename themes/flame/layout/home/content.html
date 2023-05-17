@@ -1,0 +1,550 @@
+<hr>
+<div class="container-fluid">
+	<!--News Ticker-->
+	<div class="fl_news_slider" id="fl_news_ticker">
+		<div class="bn_label">{{LANG trending}}</div>
+		<div class="bn-news">
+			<ul>
+				<?php 
+				foreach ($fl['trending_list'] as $key => $fl['trending_data']): 
+					if (!empty($fl['trending_data']['news'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['news'];
+					}
+					if (!empty($fl['trending_data']['quiz'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+					}
+					if (!empty($fl['trending_data']['list'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['list'];
+					}
+					if (!empty($fl['trending_data']['poll'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+					}
+					if (!empty($fl['trending_data']['music'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['music'];
+					}
+					$fl['trending_data']['news']['page_type'] = 'lists';
+					echo FL_LoadPage('home/latest/trending-ticker');
+				endforeach;
+				?>
+				<?php 
+				foreach ($fl['trending_news'] as $key => $fl['trending_data']): 
+					if (!empty($fl['trending_data']['news'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['news'];
+					}
+					if (!empty($fl['trending_data']['quiz'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+					}
+					if (!empty($fl['trending_data']['list'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['list'];
+					}
+					if (!empty($fl['trending_data']['poll'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+					}
+					if (!empty($fl['trending_data']['music'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['music'];
+					}
+					$fl['trending_data']['news']['page_type'] = 'news';
+					echo FL_LoadPage('home/latest/trending-ticker');
+				endforeach;
+				?>
+				<?php 
+				foreach ($fl['trending_poll'] as $key => $fl['trending_data']): 
+					if (!empty($fl['trending_data']['news'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['news'];
+					}
+					if (!empty($fl['trending_data']['quiz'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+					}
+					if (!empty($fl['trending_data']['list'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['list'];
+					}
+					if (!empty($fl['trending_data']['poll'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+					}
+					if (!empty($fl['trending_data']['music'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['music'];
+					}
+					$fl['trending_data']['news']['page_type'] = 'polls';
+					echo FL_LoadPage('home/latest/trending-ticker');
+				endforeach;
+				?>
+				<?php 
+				foreach ($fl['trending_quiz'] as $key => $fl['trending_data']): 
+					if (!empty($fl['trending_data']['news'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['news'];
+					}
+					if (!empty($fl['trending_data']['quiz'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+					}
+					if (!empty($fl['trending_data']['list'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['list'];
+					}
+					if (!empty($fl['trending_data']['poll'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+					}
+					if (!empty($fl['trending_data']['music'])) {
+						$fl['trending_data']['news'] = $fl['trending_data']['music'];
+					}
+					$fl['trending_data']['news']['page_type'] = 'quiz';
+					echo FL_LoadPage('home/latest/trending-ticker');
+				endforeach;
+				?>
+			</ul>
+		</div>
+		<div class="bn-controls">
+			<button><span class="bn-arrow bn-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></svg></span></button>
+			<button><span class="bn-arrow bn-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg></span></button>
+		</div>
+	</div>
+</div>
+
+<div class="fl_featured_prnt">
+	<div class="fl_featured">
+		<div class="featuredBlock--child">
+			{{TOP_NEWS_HTML}}
+			{{TOP_POLLS_HTML}}
+			{{TOP_VIDEOS_HTML}}
+			{{TOP_MUSIC_HTML}}
+			{{TOP_LISTS_HTML}}
+		</div>
+	</div>
+</div>
+<br><br>
+
+<div class="container container-home">
+	<div class="row">
+		<div class="fl-plus-home-content">
+			<div>
+				<div class="fl-plus-latest-news-list-cont">
+                    <div class="width-100">
+                        <div class="fl_main_text_head news">
+							<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></path></svg></span> {{LANG latest_news}}</h4>
+                        </div>
+                        <div class="width-100 fl_home_latest_news">    
+                            <?php 
+                            foreach ($fl['latest_news'] as $key => $fl['trending_data']): 
+                                $fl['first'] = false;
+
+                                if ($key == 0) {
+                                    $fl['first'] = true;
+                                }
+
+                                if (!empty($fl['trending_data']['news'])) {
+                                    $fl['trending_data']['news'] = $fl['trending_data']['news'];
+                                }
+                                if (!empty($fl['trending_data']['quiz'])) {
+                                    $fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+                                }
+                                if (!empty($fl['trending_data']['list'])) {
+                                    $fl['trending_data']['news'] = $fl['trending_data']['list'];
+                                }
+                                if (!empty($fl['trending_data']['poll'])) {
+                                    $fl['trending_data']['news'] = $fl['trending_data']['poll'];
+                                }
+                                if (!empty($fl['trending_data']['music'])) {
+                                    $fl['trending_data']['news'] = $fl['trending_data']['music'];
+                                }
+                                $fl['trending_data']['news']['page_type'] = 'news';
+                                echo FL_LoadPage('home/latest/latest-news');
+                            endforeach;
+                            ?>
+                        </div>
+						<div class="btn_v_more"><a href="{{LINK latest-news}}" data-ajax="?link1=latest-news" class="btn"><i class="material-icons">keyboard_arrow_down</i> {{LANG view_more}}</a></div>
+                    </div>
+                    <div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				<br>
+				<div class="fl_main_text_head news">
+					<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></path></svg></span> {{LANG top_news}}</h4>
+				</div>
+				<div class="fl-plus-sidebar-news-list-container fl_home_tp_nws_slidr"> 
+					<?php 
+						foreach ($fl['top_news_multi'] as $key => $fl['top_news_data']):  
+							echo FL_LoadPage('home/top/top-news');
+						endforeach;
+					?>
+				</div>
+				<div class="clear"></div>
+			
+				<!-- HOME TRENDING -->
+                <div class="fl-plus-trending-list-cont">
+                    <div class="width-100">
+                        <div class="fl_main_text_head trending">
+							<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></path></svg></span> {{LANG trending}}</h4>
+						</div>
+						<div class="fl_latest_trending_data_parent">
+							<div class="fl_latest_trending_data">
+								<?php 
+								foreach ($fl['trending_news'] as $key => $fl['trending_data']): 
+									if (!empty($fl['trending_data']['news'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['news'];
+									}
+									if (!empty($fl['trending_data']['quiz'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+									}
+									if (!empty($fl['trending_data']['list'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['list'];
+									}
+									if (!empty($fl['trending_data']['poll'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+									}
+									if (!empty($fl['trending_data']['music'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['music'];
+									}
+									$fl['trending_data']['news']['page_type'] = 'news';
+									echo FL_LoadPage('home/latest/trending');
+								endforeach;
+								?>
+							</div>
+							<div class="fl_latest_trending_data">
+								<?php 
+								foreach ($fl['trending_list'] as $key => $fl['trending_data']): 
+									if (!empty($fl['trending_data']['news'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['news'];
+									}
+									if (!empty($fl['trending_data']['quiz'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+									}
+									if (!empty($fl['trending_data']['list'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['list'];
+									}
+									if (!empty($fl['trending_data']['poll'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+									}
+									if (!empty($fl['trending_data']['music'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['music'];
+									}
+									$fl['trending_data']['news']['page_type'] = 'lists';
+									echo FL_LoadPage('home/latest/trending');
+								endforeach;
+								?>
+							</div>
+							<div class="fl_latest_trending_data">
+								<?php 
+								foreach ($fl['trending_poll'] as $key => $fl['trending_data']): 
+									if (!empty($fl['trending_data']['news'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['news'];
+									}
+									if (!empty($fl['trending_data']['quiz'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+									}
+									if (!empty($fl['trending_data']['list'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['list'];
+									}
+									if (!empty($fl['trending_data']['poll'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+									}
+									if (!empty($fl['trending_data']['music'])) {
+										$fl['trending_data']['news'] = $fl['trending_data']['music'];
+									}
+									$fl['trending_data']['news']['page_type'] = 'polls';
+									echo FL_LoadPage('home/latest/trending');
+								endforeach;
+								?>
+							</div>
+						</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                {{HP_UAD_2}}
+			</div>
+		</div>
+	</div>
+</div>	
+<br><br>
+<div class="fl_article_subscribe_box">
+	<?php if ($fl['config']['show_subscribe_box'] == 1): ?>
+		<div class="fl_article_subscribe_box_email">
+			<p>{{LANG subscribe_info}}</p>
+			<form action="https://feedburner.google.com/fb/a/mailverify?uri={{CONFIG subscribe_box_username}}" class="sidebar-subscribe-box-form" method="post" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri={{CONFIG subscribe_box_username}}', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow">
+				<input name="uri" type="hidden" value="{{CONFIG subscribe_box_username}}" />
+				<input name="loc" type="hidden" value="en_US" />
+				<input class="form-control" name="email" type="email" required placeholder="{{LANG email_address}}"/>
+				<input class="btn btn-main fl_btn" title="" type="submit" value="{{LANG subscribe_now}}" />
+			</form>
+		</div>
+	<?php endif; ?>
+	<?php if (!empty($fl['config']['fb_page'])) { ?>
+		<div class="fl_fb_like_box">
+			<p>Follow Us on Facebook</p>
+			<div>
+				<a href="{{CONFIG fb_page}}" class="btn fl_btn" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" /></svg> Facebook</a>
+			</div>
+		</div>
+	<?php } ?>
+</div>
+<br><br>
+<div class="container container-home">
+	<div class="row">
+		<div class="fl-plus-home-content width-100">
+			<div>
+				<div class="fl_home_ad">{{HP_UAD_1}}</div>
+				
+				<!-- LATEST VIDEOS -->
+                <div class="col-md-12"> 
+                    <div class="width-100">
+						<div class="fl_main_text_head videos">
+							<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M17,10.5V7A1,1 0 0,0 16,6H4A1,1 0 0,0 3,7V17A1,1 0 0,0 4,18H16A1,1 0 0,0 17,17V13.5L21,17.5V6.5L17,10.5Z"></path></svg></span> {{LANG latest_videos}}</h4>
+						</div>
+                    </div>
+                    <div class="fl_home_latest_videos row">
+                        <?php 
+                            foreach ($fl['latest_videos'] as $key => $fl['latest_videos_data']): 
+                                echo FL_LoadPage('home/latest/latest-videos');
+                            endforeach;
+                        ?>
+                    </div>
+					<div class="btn_v_more"><a href="{{LINK latest-videos}}" data-ajax="?link1=latest-videos" class="btn"><i class="material-icons">keyboard_arrow_down</i> {{LANG view_more}}</a></div>
+                </div>
+				<div class="clear"></div>
+				<br><br>
+				
+				<div class="col-md-8 no-padding-right">
+					<!-- LATEST LISTS  -->
+					<div class="fl-plus-latest-lists-cont">
+						<div class="width-100">
+							<div class="fl_main_text_head lists">
+								<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M5,9.5L7.5,14H2.5L5,9.5M3,4H7V8H3V4M5,20A2,2 0 0,0 7,18A2,2 0 0,0 5,16A2,2 0 0,0 3,18A2,2 0 0,0 5,20M9,5V7H21V5H9M9,19H21V17H9V19M9,13H21V11H9V13Z"></path></svg></span> {{LANG latest_lists}}</h4>
+							</div>
+						</div>
+						<div class="width-100">
+							<div id="fl-plus-lists-carousel" class="carousel slide" data-ride="carousel" >
+								<div class="carousel-inner" role="listbox">
+									<?php 
+										$len = count($fl['latest_lists']);
+										foreach ($fl['latest_lists'] as $key => $fl['trending_data']): 
+
+												$fl['trending_data']['active'] = ($key == 0) ? 'active' : '';
+
+												if (!empty($fl['trending_data']['news'])) {
+													$fl['trending_data']['news'] = $fl['trending_data']['news'];
+												}
+												if (!empty($fl['trending_data']['video'])) {
+													$fl['trending_data']['news'] = $fl['trending_data']['video'];
+												}
+												if (!empty($fl['trending_data']['list'])) {
+													$fl['trending_data']['news'] = $fl['trending_data']['list'];
+												}
+												if (!empty($fl['trending_data']['poll'])) {
+													$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+												}
+												if (!empty($fl['trending_data']['music'])) {
+													$fl['trending_data']['news'] = $fl['trending_data']['music'];
+												}
+												echo FL_LoadPage('home/lists/cr-item');
+										endforeach;
+									?>
+								</div>
+								<ol class="carousel-indicators">
+									<?php 
+										foreach ($fl['latest_lists'] as $key => $fl['trending_data']): 
+											$active = ($key == 0) ? "class='active'" : '';
+											echo "<li $active data-target='#fl-plus-lists-carousel' data-slide-to='$key'></li>";
+										endforeach;
+									?>
+								</ol>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>  
+
+					<!-- HOME LATEST POLLS -->
+					<div class="fl-plus-latest-polls-list-cont">
+						<div class="width-100">
+							<div class="fl_main_text_head polls">
+								<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M3,22V8H7V22H3M10,22V2H14V22H10M17,22V14H21V22H17Z"></path></svg></span> {{LANG latest_polls}}</h4>
+							</div>
+							<div class="width-100 ">    
+								<?php 
+									foreach ($fl['polls'] as $key => $fl['trending_data']):  
+										if (!empty($fl['trending_data']['news'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['news'];
+										}
+										if (!empty($fl['trending_data']['video'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['video'];
+										}
+										if (!empty($fl['trending_data']['list'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['list'];
+										}
+										if (!empty($fl['trending_data']['poll'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+										}
+										if (!empty($fl['trending_data']['music'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['music'];
+										}
+										echo FL_LoadPage('home/latest/latest-polls');
+									endforeach;
+								?>
+							</div>
+							<div class="btn_v_more"><a href="{{LINK latest-polls}}" data-ajax="?link1=latest-polls" class="btn"><i class="material-icons">keyboard_arrow_down</i> {{LANG view_more}}</a></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<br><br>
+					
+					{{HP_UAD_3}}
+					
+					<!-- HOME LATEST QUIZZES -->
+					<div class="fl-plus-latest-polls-list-cont">
+						<div class="width-100">
+							<div class="fl_main_text_head quizzes">
+								<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10M16.5,8L11,13.5L7.5,10L8.91,8.59L11,10.67L15.09,6.59L16.5,8Z"></path></svg></span> {{LANG latest_quizzes}}</h4>
+							</div>
+							<div class="fl_home_latest_quiz row">
+								<?php 
+									foreach ($fl['quizzes'] as $key => $fl['trending_data']): 
+										if (!empty($fl['trending_data']['news'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['news'];
+										}
+										if (!empty($fl['trending_data']['video'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['video'];
+										}
+										if (!empty($fl['trending_data']['list'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['list'];
+										}
+										if (!empty($fl['trending_data']['poll'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['poll'];
+										}
+										if (!empty($fl['trending_data']['music'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['music'];
+										}
+
+										if (!empty($fl['trending_data']['quiz'])) {
+											$fl['trending_data']['news'] = $fl['trending_data']['quiz'];
+										}
+
+										echo FL_LoadPage('home/latest/latest-quizzes');
+									endforeach;
+								?>
+							</div>
+							<div class="btn_v_more"><a href="{{LINK latest-quizzes}}" data-ajax="?link1=latest-quizzes" class="btn"><i class="material-icons">keyboard_arrow_down</i> {{LANG view_more}}</a></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<br><br>
+
+					<!-- /// RSS FEED /// -->
+					<div class="fl-plus-rss-feed-list-cont">   
+						<?php if (count($fl['fl_rss_feed']) > 0): ?>
+							<div class="fl_main_text_head rss">
+								<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"></path></svg></span> {{LANG read_more}}</h4>
+							</div>
+							<div class="width-100">   
+								<?php 
+								$len = count($fl['fl_rss_feed']);
+								foreach ($fl['fl_rss_feed'] as $key => $fl['latest_news_data']): 
+									$fl['latest_news_data']['last'] = false;
+									if ($key == $len -1) {
+									   $fl['latest_news_data']['last'] = true;
+									} 
+									echo FL_LoadPage('home/rss-feed');
+								endforeach;
+								?>    
+								<div class="clear"></div>
+							</div>
+							<br><br>
+						<?php endif; ?>
+					</div>
+					<!-- /// END RSS_FEED /// -->
+				</div>
+				<div class="col-md-4 custom_fixed_element">
+					<div class="width-100">
+						{{SB_UAD_1}}
+						<!--  HOME LISTS AD -->
+						
+						<!-- LATEST MUSIC -->
+						<div>
+							<div class="fl_main_text_head music">
+								<h4><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M21,3V15.5A3.5,3.5 0 0,1 17.5,19A3.5,3.5 0 0,1 14,15.5A3.5,3.5 0 0,1 17.5,12C18.04,12 18.55,12.12 19,12.34V6.47L9,8.6V17.5A3.5,3.5 0 0,1 5.5,21A3.5,3.5 0 0,1 2,17.5A3.5,3.5 0 0,1 5.5,14C6.04,14 6.55,14.12 7,14.34V6L21,3Z"></path></svg></span> {{LANG latest_music}}</h4>
+							</div>
+							<div class="width-100"> 
+								<?php 
+									foreach ($fl['music'] as $key => $fl['trending_data']): 
+										$fl['trending_data']['post'] = $fl['trending_data']['music'];
+										echo FL_LoadPage('home/latest/latest-music');
+									endforeach;
+								?>
+							</div>
+							<div class="clear"></div>
+						</div>
+
+						{{SB_UAD_2}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+$(document).ready(function(){
+	$('.featuredBlock--child').slick({
+		infinite: true,
+		centerMode: true,
+		centerPadding: '0px',
+		dots: false,
+		slidesToShow: 1,
+		autoplay: true,
+		autoplaySpeed: 5000,
+	});
+	$('.fl_home_tp_nws_slidr').slick({
+		infinite: false,
+		slidesToShow: 4,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 3,
+				}
+			},
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 2,
+				}
+			},
+			{
+				breakpoint: 550,
+				settings: {
+					slidesToShow: 1,
+				}
+			}
+		]
+	});
+});
+
+$(document).ready(function(){
+	$('#fl_news_ticker').flame_trending_news({
+		effect: 'slide-right'
+	});
+});
+
+jQuery(document).ready(function($) {
+	$('.fl-plus-latest-news-list-wrapper').equalHeights();
+
+	$('#fl-plus-lists-carousel').carousel({
+		interval: 10000
+	});
+
+	$('#fl-plus-top-news-carousel').carousel({
+		interval: false,
+		pause:true,
+		wrap:true
+	});
+
+	$("button.slide-video-cr").click(function(event) {
+		var derection = $(this).attr('data-der');
+
+		if (derection == 'left') {
+			$('#fl-plus-home-latest-videos-owl-carousel').trigger('prev.owl.carousel');
+		}
+		else if (derection == 'right') {
+			$('#fl-plus-home-latest-videos-owl-carousel').trigger('next.owl.carousel');
+		}
+		else{
+			return false;
+		}
+	});
+});
+</script>

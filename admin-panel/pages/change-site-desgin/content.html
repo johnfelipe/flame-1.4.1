@@ -1,0 +1,124 @@
+<div class="container-fluid">
+    <div>
+        <h3>Change Site Design</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Design</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Change Site Design</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- Vertical Layout -->
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Change Site Design</h6>
+                    <div class="d-settings-alert"></div>
+                    <form class="d-settings" method="POST">
+                        <div class="btn-file d-flex align-items-center">
+                            <input type="file" id="logo" accept="image/x-png, image/gif, image/jpeg" name="logo" class="hidden">
+                            <div class="mr-3 change-file-ico" id="change_logo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z" /></svg>
+                            </div>
+                            <div>
+                                <b>Logo</b>
+                                <div class="mt-1 hidden" id="logo-i">
+                                    <input type="text" class="change-file-input" readonly>
+                                </div>
+                            </div>
+                        </div>
+						<br>
+                        <div class="btn-file d-flex align-items-center">
+                            <input type="file" id="favicon" accept="image/x-png, image/gif, image/jpeg" name="favicon" class="hidden">
+                            <div class="mr-3 change-file-ico" id="change_favicon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z" /></svg>
+                            </div>
+                            <div>
+                                <b>Favicon</b>
+                                <div class="mt-1 hidden" id="favicon-i">
+                                    <input type="text" class="change-file-input" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>Please make sure to clean your browser cache after changing the design settings.</div>
+                        <br>
+                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- #END# Vertical Layout -->
+    <style type="text/css">
+        .btn-file { position: relative; overflow: hidden;cursor: pointer;}
+        .btn-file input[type=file] { position: absolute; top: 0; right: 0; min-width: 100%; min-height: 100%; font-size: 100px; text-align: right; opacity: 0; outline: none; background: #fff; cursor: inherit; display: block; }
+        .change-file-ico svg {border-radius: 50%;background: rgb(221 129 24 / 15%);color: #dd8118;padding: 10px;width: 50px;height: 50px;}
+        .change-file-input {padding: 3px 6px;border: 0;line-height: 1;background: rgb(0 0 0 / 10%);border-radius: 2em;font-size: 13px;width: 100%;}
+    </style>
+<script>
+$(function() {
+    $('#change_logo').click(function(event) {
+        $('#logo').click();
+    });
+    $('#change_favicon').click(function(event) {
+        $('#favicon').click();
+    });
+    $("#favicon").change(function () {
+         var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+         var check = filename.split('.').pop();
+         if (check == 'png' || check == 'PNG') {
+         	$("#favicon-i input").val(filename);
+         	$("#favicon-i").removeClass('hidden');
+         } else {
+            $('.d-settings-alert').html('<div class="alert alert-danger">Just PNG format is supported</div>');
+            setTimeout(function () {
+                $('.d-settings-alert').empty();
+            }, 2000);
+         	$("#favicon-i input").val('');
+         	$("#favicon-i").addClass('hidden');
+         	$('#favicon').val('');
+         }
+    });
+    $("#logo").change(function () {
+         var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+         var check = filename.split('.').pop();
+         if (check == 'png' || check == 'PNG') {
+         	$("#logo-i input").val(filename);
+         	$("#logo-i").removeClass('hidden');
+         } else {
+         	$('.d-settings-alert').html('<div class="alert alert-danger">Just PNG format is supported</div>');
+            setTimeout(function () {
+                $('.d-settings-alert').empty();
+            }, 2000);
+         	$("#logo-i input").val('');
+         	$("#logo-i").addClass('hidden');
+         	$('#logo').val('');
+         }
+    });
+    var form_d_settings = $('form.d-settings');
+    form_d_settings.ajaxForm({
+        url: '{{LINK ajax_requests.php?f=admincp&s=design&hash_id=}}' + $('.main_session').val(),
+        beforeSend: function() {
+            form_d_settings.find('.waves-effect').text('Please wait..');
+        },
+        success: function(data) {
+            if (data.status == 200) {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                $('.d-settings-alert').html('<div class="alert alert-success"><i class="fa fa-check"></i> Settings updated successfully</div>');
+                setTimeout(function () {
+                    $('.d-settings-alert').empty();
+                }, 2000);
+            }
+            form_d_settings.find('.waves-effect').text('Save');
+        }
+    });
+});
+</script>

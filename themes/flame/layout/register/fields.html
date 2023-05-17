@@ -1,0 +1,25 @@
+<?php 
+	if ($fl['field']['select_type'] == 'yes') {
+      	$options = @explode(',', $fl['field']['type']); ?>
+			<div class="flame_input">
+				<select name="<?php echo $fl['field']['fid'];?>">
+					<?php foreach ($options as $key => $value) { ?>
+						<option value="<?php echo $key + 1;?>"><?php echo $value;?></option>
+					<?php } ?>
+				</select>
+				<label for="<?php echo $fl['field']['fid'];?>"><?php echo $fl['field']['name'];?></label>
+			</div>
+      	<?php
+      }
+      else {
+      	if ($fl['field']['type'] == 'textbox') { ?>
+			<div class="flame_input">
+				<input id="<?php echo $fl['field']['fid'];?>" name="<?php echo $fl['field']['fid'];?>" type="text" placeholder="">
+				<label for="<?php echo $fl['field']['fid'];?>"><?php echo $fl['field']['name'];?></label>
+			</div>
+		<?php } else if ($fl['field']['type'] == 'textarea') {?>
+			<div class="flame_input">
+				<textarea id="<?php echo $fl['field']['fid'];?>" name="<?php echo $fl['field']['fid'];?>" rows="3" placeholder=""></textarea>
+				<label for="<?php echo $fl['field']['fid'];?>"><?php echo $fl['field']['name'];?></label>
+			</div>
+<?php } }?>

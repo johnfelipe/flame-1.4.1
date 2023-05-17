@@ -1,0 +1,18 @@
+<?php if ($fl['page_data']['page_type'] == 0) { ?>
+	<div class="fl_terms">
+		<div class="fl_terms_content">
+			<div class="fl_terms_content_body">
+				<?php echo htmlspecialchars_decode($fl['page_data']['page_content']);?>
+			</div>
+		</div>
+	</div>
+<?php } else { ?>
+	<div class="content-shadow custom-page fl_terms">
+		<div class="fl_terms_content">
+			<h1><?php echo $fl['page_data']['page_title']?></h1>
+			<div class="fl_terms_content_body">
+				<?php echo htmlspecialchars_decode($fl['page_data']['page_content']);?>
+			</div>
+		</div>
+	</div>
+<?php } ?>

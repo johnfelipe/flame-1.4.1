@@ -1,0 +1,32 @@
+<tr id="list-{{AD_ID}}" data_selected="{{AD_ID}}">
+     <td><input type="checkbox" id="check-data-{{AD_ID}}" class="delete-checkbox filled-in"><label for="check-data-{{AD_ID}}"></label></td>
+     <td>
+          {{AD_ID}}
+     </td>
+     <td>
+          <a href="{{AD_URL}}">
+               {{AD_WEBSITE}}        
+          </a>
+     </td>
+     <td>
+		<a href="{{AD_URL}}">
+               {{AD_TITLE}}       
+          </a>
+	</td>
+	<td>
+		<a href="{{SETTINGS_LINK}}">
+               {{USER_NAME}}        
+          </a>
+	</td>
+     <td>
+          <time>
+               {{DATE}}        
+          </time>
+     </td>
+     <td>
+		{{RESULTS}} Clicks
+	</td>
+	<td>
+		<button class="btn bg-danger admn_table_btn" data-id="{{AD_ID}}" data-type="user-ad" onclick="FL_DeleteAds({{AD_ID}},'hide');">Delete</button>
+	</td>
+</tr>

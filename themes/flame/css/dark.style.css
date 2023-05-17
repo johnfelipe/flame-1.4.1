@@ -1,0 +1,474 @@
+body {
+    background: #131313 !important;
+    color: #dfdfdf;
+}
+a {
+    color: #cdcdcd;
+}
+a:focus, a:hover {
+    color: #fff;
+}
+.navbar.navbar-findcond.navbar-fixed-top {
+    box-shadow: 0 1px 0px rgba(255, 255, 255, 0.2);
+}
+.fl_sec_nav, .no-read-container {
+    background: #212121;
+}
+.fl_sec_nav ul li a span {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+hr {
+    border-top: 1px solid #3d3d3d;
+}
+.modal-content {background-color: #232323;}
+.modal-header {
+    border-bottom-color: #393939;
+}
+.fl_news_slider {
+    background: rgba(255, 255, 255, 0.07);
+}
+.fl_news_slider .bn-news ul li a {
+    color: #c9c9c9;
+}
+.fl_news_slider .bn-arrow {
+    color: #e6e6e6;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.dropdown-menu, nav.navbar-findcond ul.dropdown-menu {
+    background: #313131;
+}
+.headtoppoint {
+    border-bottom: 10px solid #313131;
+}
+nav.navbar-findcond ul.fl_content_create_menu li a {
+    border: 1px solid #434343;
+}
+.dropdown-menu a {
+    color: #d8d8d8 !important;
+}
+nav.navbar-findcond ul.dropdown-menu > li > a:hover {
+    color: #fff !important;
+}
+nav.navbar-findcond ul.navbar-nav .fl_acc_menu .dropdown-menu li a svg, .fl_switch_accs_btn svg {
+    color: rgba(255, 255, 255, 0.54);
+}
+.fl_featured .fl_feat_content .description h2 a {
+    color: #fff;
+}
+.fl_featured .fl_feat_content {
+	background: #212121;
+}
+.fl_home_latest_news .fl-plus-trending-news-list-wrapper > div {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+.fl_home_latest_news .fl-plus-trending-news-list-wrapper:nth-child(-n+2) .fl-plus-trending-news-list-info .fl-plus-trending-news-list-meta a, .fl_home_latest_quiz .quiz_item .item .fl-plus-trending-news-list-meta a, .fl-plus-trending-news-list-wrapper .fl-plus-trending-news-list-info .fl-plus-trending-news-list-meta a {
+    color: #b7b7b7;
+}
+.fl-plus-trending-news-list-wrapper .fl-plus-trending-news-list-info .fl-plus-trending-news-list-title a {
+    color: #e8e8e8;
+}
+.fl_home_latest_news .fl-plus-trending-news-list-wrapper:nth-child(-n+2) .fl-plus-trending-news-list-info .fl-plus-trending-news-list-desc article, .fl_home_latest_quiz .quiz_item .item .fl-plus-trending-news-list-desc article {
+    color: #9e9e9e;
+}
+.btn_v_more .btn {
+    background-color: #3d3d3d;
+}
+.btn_v_more .btn i {
+    background-color: #101010;
+}
+.fl-plus-sidebar-news-list-wrapper {
+    background: #373737;
+    border: 1px solid #464646;
+}
+.fl-plus-sidebar-news-list-wrapper .fl-plus-sidebar-news-list-title h3 {
+    color: #e2e2e2;
+}
+.slick-prev, .slick-next {
+    color: #ffffff;
+    background: #3f3f3f;
+    box-shadow: 0 2px 6px 1px rgba(50, 50, 50, 0.16);
+}
+.fl-plus-sidebar-news-list-container .slick-arrow svg.feather {
+    color: white;
+}
+.fl-plus-trending-news-list-wrapper {
+    background: #212121;
+}
+.fl-plus-trending-news-list-wrapper .fl-plus-trending-news-list-info .fl-plus-trending-news-list-desc article {
+    color: #9e9e9e;
+}
+.fl_home_latest_videos .video_item .item {
+    background: #212121;
+}
+#fl-plus-lists-carousel .carousel-indicators li {
+	background-color: #e4e4e4;
+}
+footer .fl_footer {
+    background-color: #212121;
+    border-top: 1px solid #4a4a4a;
+}
+footer .footer-container .footer-link a, footer .footer-container a.dropdown-toggle {
+    color: #b5b5b5;
+}
+footer .footer-container .footer-link:hover a, footer .footer-container a.dropdown-toggle:hover {
+    color: #fff;
+}
+.fl-plus-sidebar-music-list-wrapper > div {
+    background: #333333;
+    border: 1px solid #393939;
+    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.03);
+}
+.fl-plus-sidebar-music-list-wrapper .fl-plus-sidebar-music-list-title a h3 {
+    color: #d5d5d5;
+}
+.fl_home_latest_quiz .quiz_item .item {
+    background: #333333;
+    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.05);
+}
+.custom-page {
+    background: #212121;
+}
+.fl_search_tabs_nav {
+    background: #414141;
+}
+.fl_search_tabs_nav > li > a {
+    color: #bfbfbf !important;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #353535;
+}
+.nav-tabs>li>a:hover {
+    border-color: #353535;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border: 1px solid #000;
+}
+.fl_search_tabs_nav > li.active > a {
+    background-color: #000;
+    color: #fff !important;
+}
+.fl_search_result .latest-news-list {
+    background: #2b2b2b;
+    border: 1px solid #373737;
+}
+.fl_search_result .latest-news-list .latest-news-title h3 {
+	color: #e6e6e6;
+}
+.fl_search_result .latest-news-list .latest-news-title .latest-news-info {
+    color: #c9c9c9;
+}
+.fl_search_result .latest-news-list .latest-news-title .latest-news-info span:first-child {
+    color: #e2e2e2;
+}
+.fl_search_result .latest-news-list .latest-news-title .latest-news-desc {
+    color: #9c9c9c;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: #000;
+}
+.empty_state, .center.no-results {
+    color: #e4e4e4;
+}
+.fl_new_header_child {
+    background: #212121;border-bottom: 1px solid #3f3f3f;
+}
+.no-container {
+    background: #212121;
+}
+.fl_write_post_area {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.form-control {
+    color: #d8d8d8;background-color: #454545;
+}
+.fl_new_header_child .btn.btn-gray {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white !important;
+}
+.main-container {
+    background: #212121;
+    border: 1px solid #3b3b3b;
+}
+.posts-managing .main-container {
+    border: 1px solid #3b3b3b;
+}
+.posts-managing .main-container h3 {
+    color: #eee;
+    border-bottom: 1px solid #3b3b3b;
+}
+.preview-image .content {
+    color: #b0b0b0;
+}
+.flame_input input, .flame_input textarea, .flame_input select, .sh_links_advop_innr .flame_input input {
+    background-color: #333333;
+    color: #ececec;
+}
+.flame_input input:focus, .flame_input textarea:focus, .flame_input select:focus {
+    background-color: #141414;
+}
+.flame_input label {
+    background-color: #292929;
+}
+.flame_input .ui-widget.ui-widget-content {
+    background-color: #333333;
+    color: #ececec;
+}
+.fl_write_post_add_entry .dropdown-menu li a:hover {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.fl_add_entry_prnt:before, .fl_add_entry_prnt:after {
+    background: rgba(255, 255, 255, 0.15);
+}
+.entry {
+    border: 1px solid #3d3d3d;
+    background-color: #393939;
+}
+.entry .entry-name {
+    color: #dadada;
+}
+.entry input, .entry textarea {
+    border: 2px solid #4a4a4a !important;
+}
+.preview-image {
+    border: 2px dashed #6b6b6b;
+}
+.answers .answer .entry_answer {
+    border-top: 1px solid #5a5a5a !important;
+}
+.nav-tabs {
+    border-bottom: 1px solid #5e5e5e;
+}
+.entry .nav.toggle-answer-type li a {
+    color: #a4a4a4 !important;
+}
+.answer-img-wrapper .answer-img .upload_img, .question-ans-wrapper .answer-img .upload_img {
+    background-color: #4c4c4c;
+}
+.fl_membr_plan {
+    background-color: #212121;
+}
+.pro-packages-header h2 {
+    color: #fff;
+}
+.pro-packages-header p {
+    color: #a8a8a8;
+}
+.modal-footer {
+    border-top: 1px solid #434343;
+}
+.profile-content-container.content {
+    background-color: #212121;
+}
+.profile-content-container .profile-info ul li {
+    color: #d3d3d3 !important;
+}
+.fl_setting_body {
+    background-color: #212121;
+}
+.settings-sidebar ul li a {
+    color: #d3d3d3;
+}
+.settings-sidebar ul li.active a {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+.settings-sidebar ul li a:hover {
+    color: #fff;
+}
+.flame_input input:placeholder-shown:not(:focus) + label, .flame_input textarea:placeholder-shown:not(:focus) + label {
+    color: rgba(255, 255, 255, 0.38);
+}
+.wow_cset_cover .wow_cset_cover_hdr .btn-file {
+    background-color: #373737;
+}
+.wow_cset_avtr .wow_cset_avtr_hdr .btn-file {
+    background-color: #373737;
+    border: 5px solid #212121;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #e6e6e6;
+}
+.verification-pending, .verification-completed {
+    background: #212121;
+}
+.fl_wallet_add {
+    background-color: #333333;
+    border: 2px solid #414141;
+}
+.fl_wallet_add input {
+    border: 2px solid #4c4c4c;
+}
+.verification-request-header h4, .fl_delete_acc h4 {
+    color: #fff;
+}
+.manage-user-ads {
+	background: #212121;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #353535;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 1px solid #353535;
+}
+.fcov_image {
+    background: #373737;
+}
+.manage-user-ads-form form {
+    color: #e4e4e4;
+}
+.table>thead>tr>th {
+    border-bottom: 2px solid #3b3b3b;
+}
+.latest-postset {
+    background: #212121;
+}
+.fl_latests .categories li a {
+    border: 1px solid #505050;
+    color: #e6e6e6;
+    background-color: #464646;
+}
+.latest-news-title a {
+    color: #fff;
+}
+.latest-postset .top-news-list .latest-news-disc {
+    color: #aeaeae;
+}
+.latest-news-info {
+    color: #b7b7b7;
+}
+.news-container .news-time h4 a {
+    color: #e8e8e8;
+}
+.news-container .news-desc p {
+    color: #c7c7c7;
+}
+.news-container .news-share-buttons .btn-shares {
+    color: #c9c9c9;
+}
+.post_bottom_share li a {
+    border: 1px solid #565656;
+}
+.entry-style .entry-text {
+    color: #c7c7c7;
+}
+.sidebar-content .sidebar-news > div.news .news-title a {
+    color: #e4e4e4;
+}
+.sidebar-content .sidebar-news {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.news-container .news-tags a {
+    color: #dedede;
+    border-bottom: 1px solid #dedede;
+}
+.fl-report-post {
+    color: #c9c9c9;
+    border: 1px solid #5c5c5c;
+}
+.fl-comment-box .fl-comment-box-form {
+    border: 2px solid #4e4e4e;
+}
+.fl-comment-box .fl-comment-box-form textarea {
+    color: #d8d8d8;
+    background-color: #212121;
+}
+.fl-comment-box .fl-comment-list-cont hr {
+    border-color: #3d3d3d;
+}
+.fl-comment-box .fl-comment-box-form .fl-comment-box-footer {
+    border-top: 2px solid #464646;
+    background-color: #2c2c2c;
+}
+.fl-comment-box .fl-comment-list-cont .fl-comment-list-body .fl-comment-item .fl-comment-item-cont div a {
+    color: #dadada;
+}
+.fl-comment-box .fl-comment-list-cont .fl-comment-list-body .fl-comment-item .fl-comment-item-cont p {
+    color: #dadada;
+}
+.comms-reply {
+    color: #a2a2a2;
+}
+.comms-reply:hover {
+    color: #dadada;
+}
+.delete-comment:hover {
+    color: #d1d1d1;
+}
+.delete-post-wrapper {
+    background-color: #212121;
+}
+.delete-post-wrapper h3 {
+    color: #fff;
+}
+.fl_terms_sidebar ul li.active a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.fl_terms_sidebar ul li a {
+    color: #bfbfbf;
+}
+.fl_terms_sidebar ul li a:hover {
+    color: #e0e0e0;
+}
+.crm_auth_social li a {
+	color: #414141;
+}
+.crm_auth_social li a svg {
+    color: #d8d8d8;
+}
+.or {
+    border-bottom: 1px solid #505050;
+}
+.or > span {
+    color: #e8e8e8;
+    background-color: #212121;
+}
+.login-form .flame_input input {
+    border-bottom: 1px solid #5c5c5c;background: transparent !important;
+}
+.payment_box .btn {
+    background-color: rgb(255 255 255 / 7%);
+}
+.entry-style .entry-title {
+    color: #fff !important;
+}
+.entry-options .answer {
+    background-color: #353535;
+    border-color: #333333;
+}
+.qz-lg-ans-wrapper div.answer {
+    border-color: #333333;
+}
+.entry-options .answer:hover {
+    background-color: #414141;
+}
+.vote-image-wrapper .answer-vote-wrapper {
+	color: #fff !important;
+}
+.fl-reaction-body .fl-reaction-emo .reaction {
+    background: #3b3b3b !important;
+}
+.fl-reaction-body .fl-reaction-emo .pre-bar span small, .display-quiz-result .result-header h3 {
+    color: #fff;
+}
+.display-quiz-result {
+    background: #2c2c2c;
+    border-color: #373737;box-shadow: 0 1px 0 0 #313131, 0 0 0 1px #2b2b2b;
+}
+.question-ans-wrapper .question-ans-footer {
+    background: #454545;
+}
+.custom_rdio_chk label:after, .custom_rdio_chk label:before {
+    background-color: #454545;
+}
+
+
+
+
+
+@media (max-width: 620px) {
+.avatar-content .profile-name > div > span {
+    color: #fff;
+}
+}

@@ -1,0 +1,12 @@
+<tr data-prfield-id="{{FIELD_ID}}" data_selected="{{FIELD_ID}}">
+	<td><input type="checkbox" id="check-data-{{FIELD_ID}}" class="delete-checkbox filled-in"><label for="check-data-{{FIELD_ID}}"></label></td>
+  <td>{{FIELD_ID}}</td>
+  <td>{{FIELD_NAME}}</td>
+  <td>{{FIELD_TYPE}}</td>
+  <td>{{FIELD_LEN}}</td>
+  <td>{{FIELD_PLACE}}</td>
+  <td>
+    <a href="{{EDIT}}" class="btn bg-success admn_table_btn">Edit</a>
+    <button onclick="FL_DeleteField('{{FIELD_ID}}','hide');" class="btn bg-danger admn_table_btn">Delete</button>
+  </td>
+</tr>

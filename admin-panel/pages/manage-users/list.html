@@ -1,0 +1,11 @@
+<tr id="list-{{USER user_id}}" data_selected="{{USER user_id}}">
+	<td><input type="checkbox" id="check-data-{{USER user_id}}" class="delete-checkbox filled-in"><label for="check-data-{{USER user_id}}"></label></td>
+  <td>{{USER user_id}}</td>
+  <td><a href="{{USER url}}"><img src="{{USER avatar}}" class="td-avatar mr-1 rounded-circle" alt="user avatar"> {{USER username}}</a></td>
+  <td>{{USER email}}</td>
+  <td>{{STATUS}}</td>
+  <td>
+  	<a class="btn bg-success admn_table_btn" href="{{SETTINGS_LINK}}" target="_blank">EDIT</a>
+  	<button class="btn bg-danger admn_table_btn" data-id="{{USER user_id}}" onclick="DeleteUser({{USER user_id}},'hide')">DELETE</button>
+  </td>
+</tr>

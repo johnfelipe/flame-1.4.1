@@ -1,0 +1,80 @@
+<div class="post_live_video" id="post_live_video_<?php echo($fl['videos']['id']) ?>">
+	<video width="100%" controls preload="auto">
+		<source src="{{VIDEO_SRC}}" type="application/x-mpegURL">
+		<source src="{{VIDEO_SRC}}" type="application/x-mpegURL">
+	</video>
+</div>
+<?php if (!$fl['videos']['is_still_live'] && $fl['videos']['live_ended']) { ?>
+<script>
+	jQuery(document).ready(function($) {
+		$('video').mediaelementplayer();
+	});
+</script>
+<?php } ?>
+<input type="hidden" id="video-id" value="<?php echo($fl['videos']['id']) ?>">
+<script type="text/javascript">
+	function go_to_duration(duration) {
+   window.scrollTo(0, 0);
+   var vid = document.querySelector("video");
+   vid.currentTime = duration;
+   vid.play();
+}
+	<?php if ($fl['config']['live_video'] == 1 && !empty($fl['videos']['stream_name']) && $fl['videos']['is_still_live'] && $fl['videos']['live_ended'] == 0) { ?>
+  var post_live_<?php echo $fl['videos']['id']; ?> = setInterval(function(){ 
+  	setTimeout(function (argument) {
+		if($('#live_post_comments_<?php echo $fl['videos']['id']; ?>').length == 0 || $('#video-id').val() != <?php echo $fl['videos']['id']; ?>){
+	  		clearInterval(post_live_<?php echo $fl['videos']['id']; ?>);
+	  	}
+    },10000);
+  	
+      data = {};
+      for (var i = 0; i < $('.live_comments').length; i++) {
+        if ($($('.live_comments')[i]).attr('live_comment_id')) {
+          data[i] = $($('.live_comments')[i]).attr('live_comment_id');
+        }
+      }
+      $.post(FL_Ajax_Requests_File() + "?f=live&s=check_comments&hash=" + $('.main_session').val(), {post_id: <?php echo $fl['videos']['id']; ?>,ids:data,page:"<?php echo($fl['page']) ?>"}, function(data, textStatus, xhr) {
+        if (data.status == 200) {
+          if (data.still_live == 'offline') {
+            $('#live_post_comments_<?php echo $fl['videos']['id']; ?>').remove();
+            $('[id=post-<?php echo $fl['videos']['id']; ?>]').find('.comment-textarea').attr('disabled');
+            return false;
+          }
+          $('#live_post_comments_<?php echo $fl['videos']['id']; ?>').append(data.html);
+          $('#live_count_<?php echo $fl['videos']['id']; ?>').html(data.count);
+          $('#live_word_<?php echo $fl['videos']['id']; ?>').html(data.word);
+          var comments = $('#live_post_comments_<?php echo $fl['videos']['id']; ?> .live_comments');
+          if (comments.length > 4) {
+            var i;
+            for (i = 0; i < comments.length; i++) {
+              if ($('#live_post_comments_<?php echo $fl['videos']['id']; ?> .live_comments').length > 4) {
+                comments[i].remove();
+              }
+            }
+          }
+        }
+        else if(data.removed == 'yes'){
+            clearInterval(post_live_<?php echo $fl['videos']['id']; ?>);
+            $('#live_count_<?php echo $fl['videos']['id']; ?>').html(0);
+            $('#live_post_comments_<?php echo $fl['videos']['id']; ?>').html("<h3 class='end_video_text'><?php echo(str_replace('{user}', $fl['videos']['publisher']['name'], $lang['stream_has_ended'])) ?></h3>");
+            //$('#live_post_comments_<?php echo $fl['videos']['id']; ?>').remove();
+            $('.pt_video_comments').remove();
+            return false;
+        }
+        else{
+            clearInterval(post_live_<?php echo $fl['videos']['id']; ?>);
+            $('#live_count_<?php echo $fl['videos']['id']; ?>').html(0);
+            //$('#live_post_comments_<?php echo $fl['videos']['id']; ?>').remove();
+            $('#live_post_comments_<?php echo $fl['videos']['id']; ?>').html("<h3 class='end_video_text'><?php echo(str_replace('{user}', $fl['videos']['publisher']['name'], $lang['stream_has_ended'])) ?></h3>");
+            $('.pt_video_comments').remove();
+            return false;
+        }
+      });
+   }, 3000);
+
+<?php } ?>
+   <?php if ($fl['config']['agora_live_video'] == 1 && !empty($fl['config']['agora_app_id']) && !empty($fl['videos']['stream_name']) && $fl['videos']['is_still_live']) { ?>
+  RunLiveAgora("<?php echo $fl['videos']['stream_name']; ?>","post_live_video_<?php echo($fl['videos']['id']) ?>");
+  
+<?php } ?>
+</script>

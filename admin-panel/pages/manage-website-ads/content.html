@@ -1,0 +1,144 @@
+<div class="container-fluid">
+    <div>
+        <h3>Manage Website Ads</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Advertisements</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Manage Website Ads</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- Vertical Layout -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Manage Website Ads</h6>
+                    <div class="ads-settings-alert"></div>
+                    <form class="ads-settings" method="POST">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Header <small>(Appears on all pages right under the nav bar)</small></label>
+                                <textarea name="header" id="header" class="form-control" cols="30" rows="5"><?php echo FL_GetAd('header', true);?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Footer <small>(Appears on all pages right before the footer)</small></label>
+                                <textarea name="footer" id="footer" class="form-control" cols="30" rows="5"><?php echo FL_GetAd('footer', true);?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Sidebar <small>(Appears on the bottom of home/article sidebar)</small></label>
+                                <textarea name="sidebar" id="sidebar" class="form-control" cols="30" rows="5"><?php echo FL_GetAd('sidebar', true);?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Latest news <small>(Appears between the latest news section in the home page)</small></label>
+                                <textarea name="home_latest_news" id="home_latest_news" class="form-control" cols="30" rows="5"><?php echo FL_GetAd('home_latest_news', true);?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Latest lists <small>(Appears between the latest lists section in the home page)</small></label>
+                                <textarea name="home_latest_lists" id="home_latest_lists" class="form-control" cols="30" rows="5"><?php echo FL_GetAd('home_latest_lists', true);?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Latest videos <small>(Appears between the latest videos section in the home page)</small></label>
+                                <textarea name="home_latest_videos" id="home_latest_videos" class="form-control" cols="30" rows="5"><?php echo FL_GetAd('home_latest_videos', true);?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Latest music <small>(Appears between the latest music section in the home page)</small></label>
+                                <textarea name="home_latest_music" id="home_latest_music" class="form-control" cols="30" rows="5"><?php echo FL_GetAd('home_latest_music', true);?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Between articles <small>(Appears between the entries in the article page)</small></label>
+                                <textarea name="between" id="between" class="form-control" cols="30" rows="5"><?php echo FL_GetAd('between', true);?></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- #END# Vertical Layout -->
+<script>
+$(function() {
+    var form_ads_settings = $('form.ads-settings');
+    form_ads_settings.ajaxForm({
+        url: '{{LINK ajax_requests.php?f=admincp&s=update_ads&hash_id=}}' + $('.main_session').val(),
+        beforeSend: function() {
+            form_ads_settings.find('.waves-effect').text('Please wait..');
+        },
+        beforeSubmit : function(arr, $form, options){
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].name == "header") {
+                    arr[i].value = btoa(unescape(encodeURIComponent($('#header').val())));
+                }
+                if (arr[i].name == 'footer') {
+                    arr[i].value = btoa(unescape(encodeURIComponent($('#footer').val())));
+                }
+                if (arr[i].name == 'sidebar') {
+                    arr[i].value = btoa(unescape(encodeURIComponent($('#sidebar').val())));
+                }
+                if (arr[i].name == 'home_latest_news') {
+                    arr[i].value = btoa(unescape(encodeURIComponent($('#home_latest_news').val())));
+                }
+                if (arr[i].name == 'home_latest_lists') {
+                    arr[i].value = btoa(unescape(encodeURIComponent($('#home_latest_lists').val())));
+                }
+                if (arr[i].name == 'home_latest_videos') {
+                    arr[i].value = btoa(unescape(encodeURIComponent($('#home_latest_videos').val())));
+                }
+                if (arr[i].name == 'home_latest_music') {
+                    arr[i].value = btoa(unescape(encodeURIComponent($('#home_latest_music').val())));
+                }
+                if (arr[i].name == 'between') {
+                    arr[i].value = btoa(unescape(encodeURIComponent($('#between').val())));
+                }
+            }
+          // delete arr[0];
+          // delete arr[1];
+          // delete arr[2];
+          // delete arr[3];
+          // delete arr[4];
+          // delete arr[5];
+          // delete arr[6];
+          // delete arr[7];
+          // arr.push({name:'header', value:btoa($('#header').val())});
+          // arr.push({name:'footer', value:btoa($('#footer').val())});
+          // arr.push({name:'sidebar', value:btoa($('#sidebar').val())});
+          // arr.push({name:'home_latest_news', value:btoa($('#home_latest_news').val())});
+          // arr.push({name:'home_latest_lists', value:btoa($('#home_latest_lists').val())});
+          // arr.push({name:'home_latest_videos', value:btoa($('#home_latest_videos').val())});
+          // arr.push({name:'home_latest_music', value:btoa($('#home_latest_music').val())});
+          // arr.push({name:'between', value:btoa($('#between').val())});
+        },
+        success: function(data) {
+            if (data.status == 200) {
+                form_ads_settings.find('.waves-effect').text('Save');
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                $('.ads-settings-alert').html('<div class="alert alert-success"><i class="fa fa-check"></i> Ads updated successfully</div>');
+                setTimeout(function () {
+                    $('.ads-settings-alert').empty();
+                }, 2000);
+            }
+        }
+    });
+});
+</script>

@@ -1,0 +1,105 @@
+<div class="custom-page content-shadow search-page" id="search-page">
+	<div class="text-center">
+		<h2>{{LANG result_for}}: <span class="fl_search_key"></span></h2>
+	</div>
+	<div class="fl_search_tabs">
+		<ul class="nav nav-tabs fl_search_nav fl_search_tabs_nav">
+			<li class="active"><a href="#news" data-toggle="tab">{{LANG news}}</a></li>
+			<li><a href="#lists" data-toggle="tab">{{LANG lists}}</a></li>
+			<li><a href="#videos" data-toggle="tab">{{LANG videos}}</a></li>
+			<li><a href="#music" data-toggle="tab">{{LANG music}}</a></li>
+			<li><a href="#polls" data-toggle="tab">{{LANG polls}}</a></li>
+			<li><a href="#quizzes-tab" data-toggle="tab">{{LANG quizzes}}</a></li>
+		</ul>
+	</div>
+	<div id="exTab2">
+		<div class="tab-content">
+			<div class="tab-pane active" id="news">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="news-wrapper" class="row">
+							{{NEWS_RESULTS}}
+						</div>
+						<div class="load-more-button-wrapper btn_v_more">
+		                    <button class="load-more-button btn" onclick="FL_LoadMore('news-wrapper', 'news', $('#news-wrapper .latest-news-list:last').attr('data-id'), 0, $(this), <?php echo (!empty($_GET['c_id'])) ? $_GET['c_id']: 0?>, $('#keyword').val(), 'search')"><i class="material-icons">keyboard_arrow_down</i> {{LANG load_more_posts}}
+								<div class="fl_loading_bar"><svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg></div>
+							</button>
+		                </div>
+				    </div>
+				    <div class="clear"></div>
+				</div>
+			</div>
+			<div class="tab-pane" id="lists">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="lists-wrapper" class="row">
+							{{LISTS_RESULTS}}
+						</div>
+						<div class="load-more-button-wrapper btn_v_more">
+		                    <button class="load-more-button btn" onclick="FL_LoadMore('lists-wrapper', 'list', $('#lists-wrapper .latest-news-list:last').attr('data-id'), 0, $(this), <?php echo (!empty($_GET['c_id'])) ? $_GET['c_id']: 0?>, $('#keyword').val(), 'search')"><i class="material-icons">keyboard_arrow_down</i> {{LANG load_more_posts}}<div class="fl_loading_bar"><svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg></div></button>
+		                </div>
+				    </div>
+				    <div class="clear"></div>
+				</div>
+			</div>
+			<div class="tab-pane" id="videos">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="video-wrapper" class="row">
+							{{VIDEOS_RESULTS}}
+						</div>
+						<div class="load-more-button-wrapper btn_v_more">
+		                    <button class="load-more-button btn" onclick="FL_LoadMore('video-wrapper', 'video', $('#video-wrapper .latest-news-list:last').attr('data-id'), 0, $(this), <?php echo (!empty($_GET['c_id'])) ? $_GET['c_id']: 0?>, $('#keyword').val(), 'search')"><i class="material-icons">keyboard_arrow_down</i> {{LANG load_more_posts}}<div class="fl_loading_bar"><svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg></div></button>
+		                </div>
+				    </div>
+				    <div class="clear"></div>
+				</div>
+			</div>
+			<div class="tab-pane" id="music">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="music-wrapper" class="row">
+							{{MUSIC_RESULTS}}
+						</div>
+						<div class="load-more-button-wrapper btn_v_more">
+		                    <button class="load-more-button btn" onclick="FL_LoadMore('music-wrapper', 'music', $('#music-wrapper .latest-news-list:last').attr('data-id'), 0, $(this), <?php echo (!empty($_GET['c_id'])) ? $_GET['c_id']: 0?>, $('#keyword').val(), 'search')"><i class="material-icons">keyboard_arrow_down</i> {{LANG load_more_posts}}<div class="fl_loading_bar"><svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg></div></button>
+		                </div>
+				    </div>
+				    <div class="clear"></div>
+				</div>
+			</div>
+			<div class="tab-pane" id="polls">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="polls-wrapper" class="row">
+							{{POLLS_RESULTS}}
+						</div>
+						<div class="load-more-button-wrapper btn_v_more">
+		                    <button class="load-more-button btn" onclick="FL_LoadMore('polls-wrapper', 'poll', $('#polls-wrapper .latest-news-list:last').attr('data-id'), 0, $(this), <?php echo (!empty($_GET['c_id'])) ? $_GET['c_id']: 0?>, $('#keyword').val(), 'search')"><i class="material-icons">keyboard_arrow_down</i> {{LANG load_more_posts}}<div class="fl_loading_bar"><svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg></div></button>
+		                </div>
+				    </div>
+				    <div class="clear"></div>
+				</div>
+			</div>
+			<div class="tab-pane" id="quizzes-tab">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="quizzes-wrapper" class="row">
+							{{QUIZ_RESULTS}}
+						</div>
+						<div class="load-more-button-wrapper btn_v_more">
+		                    <button class="load-more-button btn" onclick="FL_LoadMore('quizzes-wrapper', 'quiz', $('#quizzes-wrapper .latest-news-list:last').attr('data-id'), 0, $(this), <?php echo (!empty($_GET['c_id'])) ? $_GET['c_id']: 0?>, $('#keyword').val(), 'search')"><i class="material-icons">keyboard_arrow_down</i> {{LANG load_more_posts}}<div class="fl_loading_bar"><svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg></div></button>
+		                </div>
+				    </div>
+				    <div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	jQuery(document).ready(function($) {
+		$('form.search-header').find('input').val('{{SEARCH_KEYWORD}}');
+		$('.fl_search_key').html('{{SEARCH_KEYWORD}}');
+	});
+</script>

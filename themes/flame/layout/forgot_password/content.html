@@ -1,0 +1,57 @@
+<div class="login-con">
+	<div class="login-form">
+		<form method="post" id="forgot-form">
+			<fieldset>
+				<h4>{{LANG reset_your_password}}</h4>
+				<!-- email_address input-->
+				<div class="errors hidden"></div>
+				<div class="success hidden"></div>
+				<div class="flame_input">
+					<input type="email" name="email" id="email" placeholder="{{LANG email}}" required="">
+					<label for="email">{{LANG email}}</label>
+				</div>
+				<div class="login_signup_combo">
+					<div class="login__">
+						<button type="submit" class="btn btn-main">{{LANG request_new_password}}</button>
+					</div>
+					<div class="signup__">
+						Already have an account? <a class="dec" href="{{LINK login}}">{{LANG login}}</a>
+					</div>
+				</div>
+			</fieldset>
+			
+			<div class="fl_loading_bar">
+				<svg width="120px" height="120px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#f05125" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#928efb" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#7fbb42" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#32a0da" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+	var forgot_form = $("form#forgot-form");
+	var forgot_button = forgot_form.find("button");
+    forgot_form.ajaxForm({
+    url: FL_Ajax_Requests_File() + '?f=forgot_password',
+    beforeSend: function() {
+      forgot_button.attr("disabled", true);
+      $('.fl_loading_bar').addClass('show');
+    },
+    success: function(data) {
+      if (data.status == 200) {
+      	$(".errors").addClass('hidden');
+      	$(".success").removeClass('hidden');
+      	$(".success").html('<i class="fa fa-check"></i> {{LANG email_has_sent}}');
+      } else {
+        var errors = data.errors.join("<br>");
+        $(".success").addClass('hidden');
+        $(".errors").removeClass('hidden');
+        $(".errors").html(errors);
+        forgot_button.attr("disabled", false);
+      }
+      forgot_button.attr("disabled", false);
+      $('.fl_loading_bar').removeClass('show');
+    }
+  });
+});
+</script>

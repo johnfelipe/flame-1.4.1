@@ -1,0 +1,13 @@
+<tr data-brnews-id="{{BRNEWS_ID}}" data_selected="{{BRNEWS_ID}}">
+	<td><input type="checkbox" id="check-data-{{BRNEWS_ID}}" class="delete-checkbox filled-in"><label for="check-data-{{BRNEWS_ID}}"></label></td>
+	<td>{{BRNEWS_ID}}</td>
+	<td>{{BRNEWS_EXPIRE}}</td>
+	<td><a href="{{BRNEWS_URL}}" target="_blank">{{LANG link}}</a></td>
+	<td>{{BRNEWS_STATUS}}</td>
+	<td>
+		
+		<a href="{{LINK admin-cp/edit-breaking-news?id={{BRNEWS_ID}}}}" class="btn bg-success admn_table_btn">Edit</a>
+		<button onclick="FL_DeleteBrNews('{{BRNEWS_ID}}','hide');" class="btn bg-danger admn_table_btn">Delete</button>
+	</td>
+</tr>
+

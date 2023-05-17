@@ -1,0 +1,41 @@
+<div class="latest-postset content-shadow fl_latests">
+	<h1 class="news-color-text">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#E91E63" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10M16.5,8L11,13.5L7.5,10L8.91,8.59L11,10.67L15.09,6.59L16.5,8Z" /></svg> {{LANG latest_quizzes}}
+		<span class="rss_icon">
+			<a href="{{LINK latest-quizzes}}/rss">RSS <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="#ee802f" d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z"></path></svg></a>
+		</span>
+	</h1>
+		<ul class="list-group categories">
+		<?php 
+			foreach ($fl['quiz_categories'] as $key => $category): 
+				echo '<li><a href="{{LINK latest-quizzes/' . $key . '}}" data-ajax="?link1=latest-quizzes&c_id=' . $key . '">' . $category . '</a></li>';
+			endforeach
+		?>
+	</ul>
+	<div class="row fl_cus_featured">
+        <div class="col-md-6">{{TOP_BIG}}</div> 
+        <div class="col-md-6">{{TOP_4}}</div>
+    </div>
+	<div class="row fl_latests_pages" id="quizzes-wrapper">
+		<?php 
+			$len = count($fl['latest_page_lists']);
+			foreach ($fl['latest_page_lists'] as $key => $fl['latest_news_data']): 
+				$fl['latest_news_data']['last'] = false;
+				if ($key == $len - 1) {
+				   $fl['latest_news_data']['last'] = true;
+				} 
+				$fl['latest_news_data']['news']['page_type'] = 'quiz';
+				echo FL_LoadPage('home/latest-news');
+			endforeach;
+			if($len == 0) {
+			 echo '<div class="center no-results empty_state"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10M16.5,8L11,13.5L7.5,10L8.91,8.59L11,10.67L15.09,6.59L16.5,8Z"></path></svg>{{LANG no_posts_to_show}}</div>';
+			}
+		?>
+	</div>
+	<?php if($len > 2) { ?>
+		<div class="load-more-button-wrapper btn_v_more">
+			<button class="load-more-button btn" onclick="FL_LoadMore('quizzes-wrapper', 'quiz', $('.latest-news-list:last').attr('data-id'), 0, $(this), <?php echo (!empty($_GET['c_id'])) ? $_GET['c_id']: 0?>)"><i class="material-icons">keyboard_arrow_down</i> {{LANG load_more_lists}}<div class="fl_loading_bar"><svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(20 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.59121 0.59121)"> <animateTransform attributeName="transform" type="scale" begin="-0.5625s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(40 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.897436 0.897436)"> <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(60 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.987321 0.987321)"> <animateTransform attributeName="transform" type="scale" begin="-0.1875s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g><g transform="translate(80 50)"> <circle cx="0" cy="0" r="7" fill="#000" transform="scale(0.759663 0.759663)"> <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1.5s" repeatCount="indefinite"></animateTransform> </circle> </g></svg></div></button>
+		</div>
+	<?php } ?>
+	<div class="clear"></div>
+</div>

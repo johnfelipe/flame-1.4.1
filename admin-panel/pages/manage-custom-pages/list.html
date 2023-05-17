@@ -1,0 +1,10 @@
+<tr class="setting-postlist" id="<?php echo $fl['page']['id'];?>" data_selected="<?php echo $fl['page']['id'];?>">
+	<td><input type="checkbox" id="check-data-<?php echo $fl['page']['id'];?>" class="delete-checkbox filled-in"><label for="check-data-<?php echo $fl['page']['id'];?>"></label></td>
+   <td><?php echo $fl['page']['id'];?></td>
+   <td><a href="<?php echo FL_Link('index.php?link1=site-pages&page_name=' . $fl['page']['page_name']); ?>"><?php echo $fl['page']['page_name'];?></a></td>
+   <td><?php echo $fl['page']['page_title'];?></td>
+   <td>
+      <a class="btn bg-success admn_table_btn" href="<?php echo FL_LoadAdminLinkSettings('edit-custom-page?id=' . $fl['page']['page_name']); ?>">Edit</a>
+      <button class="btn bg-danger admn_table_btn" onclick="DeleteCustomPage(<?php echo $fl['page']['id'];?>,'hide');">Delete</button>
+   </td>
+</tr>

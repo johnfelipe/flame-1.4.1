@@ -1,0 +1,9 @@
+<tr class="setting-postlist" id="<?php echo $fl['langs_'];?>" data_selected="<?php echo $fl['langs_'];?>">
+	<td><input type="checkbox" id="check-data-<?php echo $fl['langs_'];?>" class="delete-checkbox filled-in"><label for="check-data-<?php echo $fl['langs_'];?>"></label></td>
+   <td style="text-align: center;"><?php echo $fl['langs'];?></td>
+   <td style="text-align: center;">
+      <a class="btn bg-success admn_table_btn" href="<?php echo FL_LoadAdminLinkSettings('edit-lang?id=' . $fl['langs_']);?>">Edit</a>
+      <a href="javscript:void(0)" class="delete-field btn bg-danger admn_table_btn" onclick="Wo_DeleteLang('<?php echo $fl['langs_'];?>','hide');">Delete</a>
+      <a href="javscript:void(0)" class="delete-field btn bg-info admn_table_btn" onclick="update_lang_status(this,'<?php echo $fl['langs_'];?>')" data-type="<?php echo ($fl['config'][$fl['langs_']] == 1) ? 'disable': 'enable';?>"><?php echo ($fl['config'][$fl['langs_']] == 1) ? 'Disable': 'Enable';?></a>
+   </td>
+</tr>

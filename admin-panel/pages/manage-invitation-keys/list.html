@@ -1,0 +1,19 @@
+<tr class="setting-invitation" data-invitation="<?php echo $fl['invitation']['id']; ?>" data_selected="<?php echo $fl['invitation']['id']; ?>">
+  <td><input type="checkbox" id="check-data-<?php echo $fl['invitation']['id']; ?>" class="delete-checkbox filled-in"><label for="check-data-<?php echo $fl['invitation']['id']; ?>"></label></td>
+  <td >
+     <?php echo $fl['invitation']['id']; ?>
+  </td>
+  <td >
+     <?php echo FL_Time_Elapsed_String($fl['invitation']['posted']); ?>
+  </td>
+  <td>
+     <?php echo $fl['invitation']['code']; ?>
+  </td>
+  <td>
+     Pending
+  </td>
+  <td>
+     <button class="btn bg-info admn_table_btn copy-invitation-url" id="<?php echo $fl['invitation']['id']; ?>" data-link="<?php echo $fl['invitation']['url']; ?>">Copy Link</button>
+     <button class="btn bg-danger admn_table_btn" id="<?php echo $fl['invitation']['id']; ?>" onclick="FL_DeleteCode('<?php echo $fl['invitation']['id']; ?>','hide');">Delete</button>
+  </td>
+</tr>

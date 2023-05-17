@@ -1,0 +1,118 @@
+<?php if (FL_IsPRO() == false): ?>
+<?php if ($fl['config']['credit_card'] == 'yes') { ?>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<?php } ?>
+<div class="pro-packages-container">
+	{{PAYMENT_OPTIONS}}
+	<div class="pro-packages-header">
+		<h2>{{LANG pro_packages}}</h2>
+		<p><?php
+				$name    = $fl['config']['name'];
+				$subject = $fl['lang']['discover_features'];
+				echo str_replace('{{SITE_NAME}}',$name,$subject);
+			?> 🎉</p>
+	</div>
+
+	<div class="fl_go_pro">
+		<div class="fl_membr_plan">
+			<div class="fl_membr_plan_hdr">
+				<div>
+					<svg height="512" viewBox="0 0 128 128" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m76.7 106.9c-1 0-1.8-.8-1.8-1.8v-22.3c0-1 .8-1.8 1.8-1.8s1.8.8 1.8 1.8v22.3c-.1 1-.9 1.8-1.8 1.8z" fill="#feded6"/><path d="m60.8 115.3c-1 0-1.8-.8-1.8-1.7 0-.6.3-1.1.7-1.4.3-.2 7.9-6.2 1.8-15.8-4.7-7.3-1.9-12.9.3-14.9.7-.6 1.8-.6 2.5.2.6.7.6 1.8-.1 2.4-.2.2-3.9 3.9.3 10.4 7.9 12.3-2.5 20.4-2.7 20.5-.3.2-.6.3-1 .3z" fill="#feded6"/><path d="m26.3 18.3h6.5v6.5h-6.5z" fill="#fd748c" transform="matrix(.707 -.707 .707 .707 -6.615 27.198)"/><path d="m98.1 88.6h6.5v6.5h-6.5z" fill="#fd748c" transform="matrix(.707 -.707 .707 .707 -35.285 98.624)"/><path d="m81.6 33.9h-37.2l18.6-24.6z" fill="#fd748c"/><path d="m47.6 33.9h30.8v48.9h-30.8z" fill="#f9d12f"/><path d="m78.4 44.7-30.8 14v-8.6l30.8-14z" fill="#2ec3fc"/><path d="m78.4 66.2-30.8 14v-8.6l30.8-14z" fill="#2ec3fc"/><g fill="#fd852b"><path d="m56.3 106.7c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4-1.1-2.4-2.4-2.4z"/><path d="m56.3 115.7c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4-1.1-2.4-2.4-2.4z"/><path d="m51.8 111.2c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4-1.1-2.4-2.4-2.4z"/><path d="m101.9 33c1.3 0 2.4-1.1 2.4-2.4s-1.1-2.4-2.4-2.4-2.4 1.1-2.4 2.4 1.1 2.4 2.4 2.4z"/><path d="m101.9 37.1c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4c.1-1.3-1-2.4-2.4-2.4z"/><path d="m97.4 32.6c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4c.1-1.3-1-2.4-2.4-2.4z"/><path d="m106.4 32.6c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4c.1-1.3-1-2.4-2.4-2.4z"/><path d="m26.1 77.2c1.3 0 2.4-1.1 2.4-2.4s-1.1-2.4-2.4-2.4-2.4 1.1-2.4 2.4c-.1 1.3 1 2.4 2.4 2.4z"/><path d="m26.1 81.3c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4-1.1-2.4-2.4-2.4z"/><path d="m21.6 76.8c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4-1.1-2.4-2.4-2.4z"/><path d="m30.6 76.8c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4-1.1-2.4-2.4-2.4z"/></g></svg> {{LANG free_mbr}}
+				</div>
+				<b>$0/m</b>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					{{CONFIG user_max_posts}} {{LANG posting_limit}}
+				</div>
+				<div class="col-lg-6">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="red" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z"></path></svg> {{LANG featured_posts}}
+				</div>
+				<div class="col-lg-6">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="red" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z"></path></svg> {{LANG no_ads}}
+				</div>
+				<div class="col-lg-6">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="red" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z"></path></svg> {{LANG verified_badge}}
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" disabled="">{{LANG stay_free}}</button>
+			</div>
+		</div>
+		<div class="fl_membr_plan">
+			<div class="fl_membr_plan_hdr">
+				<div>
+					<svg height="512" viewBox="0 0 128 128" width="512" xmlns="http://www.w3.org/2000/svg"><g fill="#fd852b"><path d="m89.8 25.1c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4c.1 1.4-1 2.4-2.4 2.4z"/><path d="m89.8 34.1c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4c.1 1.4-1 2.4-2.4 2.4z"/><path d="m85.3 29.6c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4c0 1.4-1 2.4-2.4 2.4z"/><path d="m94.3 29.6c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4c.1 1.4-1 2.4-2.4 2.4z"/><path d="m22 103.1c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4c0 1.4-1.1 2.4-2.4 2.4z"/><path d="m22 112.1c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4c0 1.4-1.1 2.4-2.4 2.4z"/><path d="m17.5 107.6c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4c0 1.4-1.1 2.4-2.4 2.4z"/><path d="m26.5 107.6c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4c0 1.4-1.1 2.4-2.4 2.4z"/></g><path d="m37.8 15.5h6.5v6.5h-6.5z" fill="#fd748c" transform="matrix(.707 -.707 .707 .707 -1.241 34.522)"/><path d="m101 106h6.5v6.5h-6.5z" fill="#fd748c" transform="matrix(.707 -.707 .707 .707 -46.717 105.699)"/><ellipse cx="64" cy="67.1" fill="#fc6928" rx="39.3" ry="16.4"/><path d="m110.7 44.2-8.7 39.3-1.6 7.4c0 3.8-16.3 6.9-36.4 6.9s-36.4-3.1-36.4-6.9l-1.6-7.4-8.7-39.3 30.2 18.5 16.5-26.1 16.5 26.1z" fill="#f9d12f"/><path d="m60.6 66.5h6.7v6.7h-6.7z" fill="#2ec3fc" transform="matrix(.707 -.707 .707 .707 -30.662 65.72)"/><path d="m102 83.5-1.6 7.4c0 3.8-16.3 6.9-36.4 6.9s-36.4-3.1-36.4-6.9l-1.6-7.4c7 2.6 21.4 4.4 38 4.4s31-1.8 38-4.4z" fill="#fd852b"/><circle cx="110.7" cy="44.6" fill="#fd852b" r="7.8"/><circle cx="64" cy="36.7" fill="#fc6928" r="7.8"/><circle cx="17.3" cy="44.6" fill="#fc6928" r="7.8"/><path d="m64 65.1v4.8h4.8z" fill="#1ba4fc"/><path d="m59.2 69.9h4.8v4.7z" fill="#1ba4fc"/></svg> {{LANG pro_mbr}}
+				</div>
+				<b>${{CONFIG pro_pkg_price}}/m</b>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					1000 {{LANG posting_limit}}
+				</div>
+				<div class="col-lg-6">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="green" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path></svg> {{LANG featured_posts}}
+				</div>
+				<div class="col-lg-6">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="green" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path></svg> {{LANG no_ads}}
+				</div>
+				<div class="col-lg-6">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="green" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path></svg> {{LANG verified_badge}}
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" onclick="GetPaymentModal('pro')">{{LANG upgrade}}</button>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+<script>
+	// function FL_PurchasePkg(pkg,self){
+	// 	if (!pkg || pkg != 'pro' || !self) {
+	// 		return false;
+	// 	}
+
+	// 	$(self).text("{{LANG please_wait}}").attr('disabled', 'true');
+
+	// 	$.ajax({
+	// 		url: FL_Ajax_Requests_File() +  '?f=go_pro&s=purchase&hash_id=' + $('.main_session').val(),
+	// 		type: 'POST',
+	// 		dataType: 'json',
+	// 		data: {type: pkg},
+	// 	})
+	// 	.done(function(data) {
+
+	// 		if (data.status == 200) {
+	// 			document.location.href = data.url;
+	// 		}
+
+	// 		else{
+	// 			swal({
+	// 				title: "{{LANG error}}",
+	// 				text: "{{LANG error_found_request}}",
+	// 				type: "error"
+	// 			});
+	// 		}
+	// 	})
+	// 	.fail(function() {
+	// 		console.log("error");
+	// 	});
+	// }
+</script>
+
+<?php else: ?>
+<div class="pro-packages-container fl-plus-box-shadow">
+	<div class="go-pro-head-upgraded">
+		<h4>{{LANG congratulations}}</h4>
+		<p>{{LANG u_are_pro}}</p>
+	</div>
+	<div class="go-pro-footer-upgraded">
+		<a href="{{LINK }}">
+			<button class="btn-main btn btn-lg">		
+				{{LANG start_new_features}}
+			</button>
+		</a>
+	</div>
+</div>
+<?php endif; ?>

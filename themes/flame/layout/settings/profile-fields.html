@@ -1,0 +1,39 @@
+<div class="form-group">
+	<?php $fid = '';
+      if (!empty($fl['user']['fields'][$fl['field']['fid']])) {
+        $fid  = $fl['user']['fields'][$fl['field']['fid']];
+      } 
+	?>
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div class="flame_input">
+				<select id="gender" name="gender">
+							<option value="male" <?php echo ($fl['setting']['gender'] == 'male') ? 'selected': '';?>>{{LANG male}}</option>
+							<option value="female" <?php echo ($fl['setting']['gender'] == 'female') ? 'selected': '';?>>{{LANG female}}</option>
+					</select>
+			<label for="gender">{{LANG gender}}</label>
+		</div>
+		<div class="flame_input">
+			<?php 
+				if ($fl['field']['select_type'] == 'yes') {  $options = @explode(',', $fl['field']['type']); ?>
+				<select name="<?php echo $fl['field']['fid'];?>">
+					<?php
+					foreach ($options as $key => $value) {
+						$selected = (($key + 1) == $fid) ? 'selected' : '';
+					?>
+						<option value="<?php echo $key + 1;?>" <?php echo $selected;?>><?php echo $value;?></option>
+					<?php } ?>
+				</select>
+			<?php } 
+				else {
+				if ($fl['field']['type'] == 'textbox') { ?>
+					<input id="<?php echo $fl['field']['fid'];?>" name="<?php echo $fl['field']['fid'];?>" type="text" placeholder="<?php echo $fl['field']['name']; ?>" value="<?php echo $fid?>">
+			<?php } else if ($fl['field']['type'] == 'textarea') {?>
+				<textarea id="<?php echo $fl['field']['fid'];?>" name="<?php echo $fl['field']['fid'];?>" placeholder="<?php echo $fl['field']['name']; ?>" rows="3"><?php echo $fid?></textarea>
+			<?php } } ?>
+			<label for="<?php echo $fl['field']['fid'];?>"><?php echo $fl['field']['name']; ?></label>
+		</div>
+		<span class="help-block"><?php echo $fl['field']['description'];?></span>
+	</div>
+	<div class="col-md-1"></div>
+</div>

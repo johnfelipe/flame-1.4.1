@@ -1,0 +1,20 @@
+<div class="top-news-list col-md-4" id="<?php echo $fl['latest_news_data']['news']['id'];?>">
+	<div class="news latest-news-list" data-id="<?php echo $fl['latest_news_data']['news']['id'];?>">
+		<div class="latest-news-img">
+			<a href="<?php echo $fl['latest_news_data']['news']['url'];?>" data-ajax="?link1=<?php echo($fl['latest_news_data']['news']['page_type']) ?>&id=<?php echo $fl['latest_news_data']['news']['slug'].'-'.$fl['latest_news_data']['news']['id'];?>"><img src="<?php echo($fl['latest_news_data']['news']['small_image']);?>" alt="Image"></a>
+		</div>
+		<div class="latest-news-title">
+			<h4><a href="<?php echo $fl['latest_news_data']['news']['url'];?>" data-ajax="?link1=<?php echo($fl['latest_news_data']['news']['page_type']) ?>&id=<?php echo $fl['latest_news_data']['news']['slug'].'-'.$fl['latest_news_data']['news']['id'];?>"><?php echo $fl['latest_news_data']['news']['title'];?></a></h4>
+		</div>
+		<div class="latest-news-info">
+			<span class="latest-news-time"><a href="<?php echo $fl['latest_news_data']['news']['publisher']['url'];?>" data-ajax="?link1=profile&u=<?php echo $fl['latest_news_data']['news']['publisher']['username'];?>"><?php echo $fl['latest_news_data']['news']['publisher']['name'];?></a></span>&nbsp;&nbsp;-&nbsp;&nbsp;
+			<span class="latest-news-time"> 
+			<?php
+				$fl['latest_news_data']['news']['posted'] = date('d, M Y h:i A',$fl['latest_news_data']['news']['time']);
+				echo $fl['latest_news_data']['news']['posted'];
+			?>
+			</span>
+		</div>
+		<div class="latest-news-disc"><?php echo mb_substr($fl['latest_news_data']['news']['description'], 0, 100, "UTF-8") . '..';?></div>
+	</div>
+</div>

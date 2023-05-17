@@ -1,0 +1,77 @@
+<tr data-verif-request-id="{{REQUEST_ID}}" data_selected="{{REQUEST_ID}}">
+	<td><input type="checkbox" id="check-data-{{REQUEST_ID}}" class="delete-checkbox filled-in"><label for="check-data-{{REQUEST_ID}}"></label></td>
+	<td>{{REQUEST_ID}}</td>
+	<td class="hidden">{{REQUEST_USERNAME}}</td>
+	<td><a href="{{USER url}}" target="_blank">{{REQUEST_USERNAME}}</a></td>
+	<td><button type="button" data-toggle="modal" class="btn bg-info admn_table_btn toggle-verification-request" data-target="#review-verif-request-info-{{REQUEST_ID}}">Show Info</button></td>
+	<td>{{REQUEST_TYPE}}</td>
+	<td>Pending</td>
+
+	<td class="pointer verification-action">	
+		<button class="btn bg-success admn_table_btn" onclick="FL_VerifyUser({{REQUEST_ID}},'hide');">Verify</button>
+	  	<button class="btn bg-danger admn_table_btn delete-content" onclick="FL_DeleteVerifRequest({{REQUEST_ID}},'hide');">Delete</button>
+	</td>
+</tr>
+<div class="modal fade" id="review-verif-request-info-{{REQUEST_ID}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Verification Info</h5>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-6">
+						<a href="{{REQUEST_USER_ID}}" class="image-popup-gallery-item-{{REQUEST_ID}}">
+							 <div class="image-hover">
+								 <img src="{{REQUEST_USER_ID}}" class="rounded" alt="image" style="width: 100%;min-height: 200px;max-height: 200px;">
+								 <div class="image-hover-body rounded">
+									 <div>
+										 <h4 class="mb-2">Passport</h4>
+									 </div>
+								 </div>
+							 </div>
+						 </a>
+					</div>
+					<div class="col-md-6">
+						<a href="{{REQUEST_USER_PHOTO}}" class="image-popup-gallery-item-{{REQUEST_ID}}">
+                                 <div class="image-hover">
+                                     <img src="{{REQUEST_USER_PHOTO}}" class="rounded" alt="image" style="width: 100%;min-height: 200px;max-height: 200px;">
+                                     <div class="image-hover-body rounded">
+                                         <div>
+                                             <h4 class="mb-2">Photo</h4>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </a>
+					</div>
+				</div>
+				<br>
+				<p class="mb-1"><span class="badge bg-success-bright text-success">Name</span></p>
+				<p>{{REQUEST_USERNAME}}</p>
+				<p class="mb-1"><span class="badge bg-info-bright text-info">Message</span></p>
+				<p>{{REQUEST_MESSAGE}}</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $('.image-popup-gallery-item-{{REQUEST_ID}}').magnificPopup({
+           type: 'image',
+           gallery: {
+               enabled: true
+           },
+           zoom: {
+               enabled: true,
+               duration: 300,
+               easing: 'ease-in-out',
+               opener: function(openerElement) {
+                   return openerElement.is('img') ? openerElement : openerElement.find('img');
+               }
+           }
+       });
+   });
+</script>

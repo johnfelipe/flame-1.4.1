@@ -1,0 +1,17 @@
+<tr class="setting-banlist report-list-{{REPORT_ID}}" data_selected="{{REPORT_ID}}">
+  <td><input type="checkbox" id="check-data-{{REPORT_ID}}" class="delete-checkbox filled-in"><label for="check-data-{{REPORT_ID}}"></label></td>
+   <td>{{REPORT_ID}}</td>
+   <td>
+      <a href="{{REPORT_USER}}" target="_blank">{{REPORT_USERNAME}}</a>
+   </td>
+   <td>
+     <a href="{{REPORT_POST}}" target="_blank">Link</a>
+   </td>
+   <td>
+     {{REPORT_TIME}}
+   </td>
+   <td>
+      <button onclick="FL_ManageReport('{{REPORT_ID}}','s',this,'','hide');" class="btn bg-success admn_table_btn">Mark Safe</button>
+      <span onclick="FL_ManageReport('{{REPORT_ID}}','d',this,'hide');" class="btn bg-danger admn_table_btn">Delete</span>
+   </td>
+</tr>

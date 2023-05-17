@@ -1,0 +1,14 @@
+<div class="fl-plus-sidebar-news-list-wrapper">
+	<a href="<?php echo $fl['top_news_data']['news']['url'] ?>" data-ajax="?link1=news&id=<?php echo $fl['top_news_data']['news']['slug'].'-'.$fl['top_news_data']['news']['id'];?>">
+		<div class="fl-plus-sidebar-news-list-img" style="background-image: url('<?php echo $fl['top_news_data']['news']['small_image'] ?>');"></div>
+		<div class="fl-plus-sidebar-news-list-title">
+			<div>
+				<h3><?php echo $fl['top_news_data']['news']['title'] ?></h3>
+				<time>
+					<span><?php echo $fl['top_news_data']['news']['posted'] ?></span> - 
+					<span><?php echo $fl['top_news_data']['news']['views'] ?> {{LANG views}}</span>
+				</time>
+			</div>
+		</div>
+	</a>
+</div>

@@ -1,0 +1,25 @@
+<?php if($fl['mediafilelist']->user){  ?>
+	<tr id="ReceiptID_<?php echo $fl['mediafilelist']->id?>" data-receipt-id="<?php echo $fl['mediafilelist']->id?>">
+		<td>
+            <a href="<?php echo $fl['site_url'] . '/@' . $fl['mediafilelist']->user['username']; ?>" target="_blank">
+                <img src="<?php echo $fl['mediafilelist']->user['avatar'];?>" class="td-avatar rounded-circle mr-1" alt="<?php echo $fl['mediafilelist']->user['username'];?> Profile Picture"> <?php echo $fl['mediafilelist']->user['name']; ?>
+            </a>
+        </td>
+		<td><?php echo $fl['mediafilelist']->description;?></td>
+		<td><?php echo '$ ' . $fl['mediafilelist']->price;?></td>
+		<td><span class="ajax-time"><?php echo date('c', strtotime($fl['mediafilelist']->created_at)); ?></td>
+		<td>
+			<a class="image-popup btn bg-info admn_table_btn admn-mng-bnk-rct" href="<?php echo FL_GetMedia($fl['mediafilelist']->receipt_file); ?>" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3,22L4.5,20.5L6,22L7.5,20.5L9,22L10.5,20.5L12,22L13.5,20.5L15,22L16.5,20.5L18,22L19.5,20.5L21,22V2L19.5,3.5L18,2L16.5,3.5L15,2L13.5,3.5L12,2L10.5,3.5L9,2L7.5,3.5L6,2L4.5,3.5L3,2M18,9H6V7H18M18,13H6V11H18M18,17H6V15H18V17Z" /></svg> <img src="<?php echo FL_GetMedia($fl['mediafilelist']->receipt_file); ?>" class="card-img-top">Show Receipt
+            </a>
+		</td>
+		<td>
+			<?php if((int)$fl['mediafilelist']->approved == 0){?>
+				<a href="#" class="btn bg-success admn_table_btn" onclick="ApproveReceipt(<?php echo $fl['mediafilelist']->id?>,'<?php echo $fl['mediafilelist']->receipt_file?>','hide');">Approve</a>
+				<a href="javascript:void(0)" class="btn bg-danger admn_table_btn" onclick="DeleteReceipt(<?php echo $fl['mediafilelist']->id?>,<?php echo $fl['mediafilelist']->user_id?>,'<?php echo $fl['mediafilelist']->receipt_file?>','hide');">Delete</a>
+			<?php } else{ ?>
+				<b style="color:darkgreen;">Approved <?php echo FL_Time_Elapsed_String($fl['mediafilelist']->approved_at); ?></b>
+			<?php } ?>
+		</td>
+    </tr>
+<?php } ?>
